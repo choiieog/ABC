@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "cli": {
+    "analytics": false
+  },
+  "projects": {
+    "storefront": {
+      "projectType": "application",
+      "root": "frontend/storefront",
+      "sourceRoot": "frontend/storefront/src",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "frontend/storefront/src/main.ts",
+            "index": "frontend/storefront/src/index.html",
+            "tsConfig": "frontend/storefront/tsconfig.app.json",
+            "styles": [
+              "frontend/shared/styles.css"
+            ],
+            "outputPath": "dist/frontend/storefront"
+          },
+          "configurations": {
+            "development": {
+              "optimization": false,
+              "sourceMap": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "options": {
+            "buildTarget": "storefront:build:development",
+            "proxyConfig": "frontend/proxy.conf.json"
+          }
+        }
+      }
+    },
+    "admin-portal": {
+      "projectType": "application",
+      "root": "frontend/admin-portal",
+      "sourceRoot": "frontend/admin-portal/src",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "browser": "frontend/admin-portal/src/main.ts",
+            "index": "frontend/admin-portal/src/index.html",
+            "tsConfig": "frontend/admin-portal/tsconfig.app.json",
+            "styles": [
+              "frontend/shared/styles.css"
+            ],
+            "outputPath": "dist/frontend/admin-portal"
+          },
+          "configurations": {
+            "development": {
+              "optimization": false,
+              "sourceMap": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "options": {
+            "buildTarget": "admin-portal:build:development",
+            "proxyConfig": "frontend/proxy.conf.json"
+          }
+        }
+      }
+    }
+  }
+}

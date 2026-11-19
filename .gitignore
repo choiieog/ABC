@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.angular/
+.env
+.data/
+*.log
+
+# Local environment files (templates remain tracked)
+.env.*
+!.env.example
+coverage/

@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS xd_inventory
+    CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs;
+USE xd_inventory;
+
+CREATE TABLE IF NOT EXISTS stock (
+    product_id VARCHAR(32) PRIMARY KEY,
+    available INT NOT NULL DEFAULT 0,
+    updated_at DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3) ON UPDATE CURRENT_TIMESTAMP(3),
+    CONSTRAINT chk_stock_available CHECK (available >= 0)
+) ENGINE=InnoDB;

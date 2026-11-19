@@ -1,0 +1,24 @@
+CREATE DATABASE IF NOT EXISTS xd_identity
+    CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_as_cs;
+USE xd_identity;
+
+CREATE TABLE IF NOT EXISTS roles (
+    id VARCHAR(32) PRIMARY KEY,
+    name VARCHAR(120) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS users (
+    id CHAR(36) PRIMARY KEY,
+    email VARCHAR(254) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    is_active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3)
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS user_roles (
+    user_id CHAR(36) NOT NULL,
+    role_id VARCHAR(32) NOT NULL,
+    PRIMARY KEY (user_id, role_id),
+    CONSTRAINT fk_user_roles_user FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+    CONSTRAINT fk_user_roles_role FOREIGN KEY (role_id) REFERENCES roles (id)
+) ENGINE=InnoDB;

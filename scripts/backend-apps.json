@@ -1,0 +1,52 @@
+[
+  {
+    "name": "gateway",
+    "directory": "api-gateway",
+    "port": 3000
+  },
+  {
+    "name": "identity",
+    "directory": "services/identity-service",
+    "port": 3001
+  },
+  {
+    "name": "catalog",
+    "directory": "services/catalog-service",
+    "port": 3002
+  },
+  {
+    "name": "inventory",
+    "directory": "services/inventory-service",
+    "port": 3003
+  },
+  {
+    "name": "sales",
+    "directory": "services/sales-service",
+    "port": 3004
+  },
+  {
+    "name": "shipping",
+    "directory": "services/shipping-service",
+    "port": 3005
+  },
+  {
+    "name": "supply",
+    "directory": "services/supply-service",
+    "port": 3006
+  },
+  {
+    "name": "reporting",
+    "directory": "services/reporting-service",
+    "port": 3007
+  },
+  {
+    "name": "customer",
+    "directory": "services/customer-service",
+    "port": 3008
+  },
+  {
+    "name": "payment",
+    "directory": "services/payment-service",
+    "port": 3009
+  }
+]

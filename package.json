@@ -1,0 +1,70 @@
+{
+  "name": "xd-manager",
+  "private": true,
+  "scripts": {
+    "build:backend": "tsc -p backend/tsconfig.json",
+    "build:frontend": "ng build storefront && ng build admin-portal",
+    "build": "npm run build:backend && npm run build:frontend",
+    "start:backend": "node scripts/start-backend.cjs",
+    "dev:backend": "npm run build:backend && npm run start:backend",
+    "dev:storefront": "ng serve storefront --host 127.0.0.1 --port 4200",
+    "dev:admin": "ng serve admin-portal --host 127.0.0.1 --port 4201",
+    "build:gateway": "tsc -p backend/api-gateway/tsconfig.json",
+    "start:gateway": "node scripts/start-backend.cjs gateway",
+    "dev:gateway": "npm run build:gateway && npm run start:gateway",
+    "build:identity": "tsc -p backend/services/identity-service/tsconfig.json",
+    "start:identity": "node scripts/start-backend.cjs identity",
+    "dev:identity": "npm run build:identity && npm run start:identity",
+    "build:catalog": "tsc -p backend/services/catalog-service/tsconfig.json",
+    "start:catalog": "node scripts/start-backend.cjs catalog",
+    "dev:catalog": "npm run build:catalog && npm run start:catalog",
+    "build:inventory": "tsc -p backend/services/inventory-service/tsconfig.json",
+    "start:inventory": "node scripts/start-backend.cjs inventory",
+    "dev:inventory": "npm run build:inventory && npm run start:inventory",
+    "build:sales": "tsc -p backend/services/sales-service/tsconfig.json",
+    "start:sales": "node scripts/start-backend.cjs sales",
+    "dev:sales": "npm run build:sales && npm run start:sales",
+    "build:shipping": "tsc -p backend/services/shipping-service/tsconfig.json",
+    "start:shipping": "node scripts/start-backend.cjs shipping",
+    "dev:shipping": "npm run build:shipping && npm run start:shipping",
+    "build:supply": "tsc -p backend/services/supply-service/tsconfig.json",
+    "start:supply": "node scripts/start-backend.cjs supply",
+    "dev:supply": "npm run build:supply && npm run start:supply",
+    "build:reporting": "tsc -p backend/services/reporting-service/tsconfig.json",
+    "start:reporting": "node scripts/start-backend.cjs reporting",
+    "dev:reporting": "npm run build:reporting && npm run start:reporting",
+    "build:customer": "tsc -p backend/services/customer-service/tsconfig.json",
+    "start:customer": "node scripts/start-backend.cjs customer",
+    "dev:customer": "npm run build:customer && npm run start:customer",
+    "build:payment": "tsc -p backend/services/payment-service/tsconfig.json",
+    "start:payment": "node scripts/start-backend.cjs payment",
+    "dev:payment": "npm run build:payment && npm run start:payment"
+  },
+  "dependencies": {
+    "@angular/common": "~21.2.0",
+    "@angular/compiler": "~21.2.0",
+    "@angular/core": "~21.2.0",
+    "@angular/forms": "~21.2.0",
+    "@angular/platform-browser": "~21.2.0",
+    "@angular/router": "~21.2.0",
+    "@nestjs/common": "^11.0.0",
+    "@nestjs/core": "^11.0.0",
+    "@nestjs/platform-express": "^11.0.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@angular/build": "~21.2.0",
+    "@angular/cli": "~21.2.0",
+    "@angular/compiler-cli": "~21.2.0",
+    "@types/express": "^5.0.0",
+    "@types/node": "^24.0.0",
+    "typescript": "~5.9.3"
+  },
+  "overrides": {
+    "@nestjs/platform-express": {
+      "multer": "^2.5.0"
+    }
+  }
+}
